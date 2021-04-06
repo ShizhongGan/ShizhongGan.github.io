@@ -6,7 +6,7 @@
   <link href="http://shizhonggan.github.io/atom.xml" rel="self"/>
   
   <link href="http://shizhonggan.github.io/"/>
-  <updated>2021-04-02T07:30:41.023Z</updated>
+  <updated>2021-04-06T02:04:37.457Z</updated>
   <id>http://shizhonggan.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vs code 实用扩展插件</title>
+    <link href="http://shizhonggan.github.io/2021/04/06/Tips/vscode_tips/"/>
+    <id>http://shizhonggan.github.io/2021/04/06/Tips/vscode_tips/</id>
+    <published>2021-04-06T01:53:55.399Z</published>
+    <updated>2021-04-06T02:04:37.457Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>Angular 8 and TypeScript/HTML VS Code Snippets</li><li>Awesome Flutter Snippets</li><li>Chinese (Simplified) Language Pack for Visual Studio Code</li><li>Code Runner</li><li>Code Spell Checker</li><li>Dart</li><li>Docker</li><li><a href="http://Draw.io">Draw.io</a> Integration</li><li>Flutter</li><li>Graphviz Interactive Preview</li><li>HTML Boilerplate</li><li>Jupyter</li><li>LaTeX Workshop</li><li>Live Server</li><li>Markdown All in One</li><li>Markdown Mind Map Preview</li><li>Markdown PDF</li><li>Markdown+Math</li><li>Office Viewer</li><li>open in browser</li><li>PlantUML</li><li>python</li><li>reStructuredText</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ol&gt;
+&lt;li&gt;Angular 8 and TypeScript/HTML VS Code Snippets&lt;/li&gt;
+&lt;li&gt;Awesome Flutter Snippets&lt;/li&gt;
+&lt;li&gt;Chinese (Simplified) Language Pack for Vi</summary>
+      
+    
+    
+    
+    <category term="Tips" scheme="http://shizhonggan.github.io/categories/Tips/"/>
+    
+    
+    <category term="vs code插件" scheme="http://shizhonggan.github.io/tags/vs-code%E6%8F%92%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>Gitalk 评论登录出现403 解决方法</title>
@@ -46,23 +73,35 @@
   
   <entry>
     <title>软件定义网络（SDN）学习笔记</title>
-    <link href="http://shizhonggan.github.io/2021/04/02/SDN/SDNCatalog/"/>
-    <id>http://shizhonggan.github.io/2021/04/02/SDN/SDNCatalog/</id>
+    <link href="http://shizhonggan.github.io/2021/04/02/SDN/SDN01/"/>
+    <id>http://shizhonggan.github.io/2021/04/02/SDN/SDN01/</id>
     <published>2021-04-02T01:13:34.998Z</published>
-    <updated>2021-04-02T01:26:06.732Z</updated>
+    <updated>2021-04-06T08:23:39.539Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="open-vswitch-ovs"><a class="markdownIt-Anchor" href="#open-vswitch-ovs"></a> Open vSwitch (OVS)</h2><p>OVS</p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>SDN学习目录</p><blockquote><p><a href="../SDN01">SDN核心原理与应用实践(1)–OVS系统架构</a></p><p>SDN核心原理与应用实践(2)–OVS系统架构</p></blockquote></blockquote><h2 id="open-vswitch-ovs"><a class="markdownIt-Anchor" href="#open-vswitch-ovs"></a> Open vSwitch (OVS)</h2><p>OVS 架构分为三个部分:</p><ul><li>内核空间</li><li>用户空间</li><li>配置管理层</li></ul><p><img src="./source/ovs%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84.png" alt="ovs 系统架构" /></p>]]></content>
     
     
       
       
-    <summary type="html">&lt;h2 id=&quot;open-vswitch-ovs&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#open-vswitch-ovs&quot;&gt;&lt;/a&gt; Open vSwitch (OVS)&lt;/h2&gt;
-&lt;p&gt;OVS&lt;/p&gt;
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;SDN学习目录&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;../SDN01&quot;&gt;SDN核心原理与应用实践(1)–OVS系统架构&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;SDN核心原理与应用实践(2)–OVS系统架构&lt;/p&gt;
+&lt;/blockquote&gt;
 </summary>
       
     
     
     
+    <category term="SDN" scheme="http://shizhonggan.github.io/categories/SDN/"/>
+    
+    
+    <category term="网络架构" scheme="http://shizhonggan.github.io/tags/%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/"/>
+    
+    <category term="SDN" scheme="http://shizhonggan.github.io/tags/SDN/"/>
+    
+    <category term="OVS" scheme="http://shizhonggan.github.io/tags/OVS/"/>
     
   </entry>
   
