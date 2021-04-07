@@ -6,7 +6,7 @@
   <link href="http://shizhonggan.github.io/atom.xml" rel="self"/>
   
   <link href="http://shizhonggan.github.io/"/>
-  <updated>2021-04-06T02:04:37.457Z</updated>
+  <updated>2021-04-07T06:43:25.292Z</updated>
   <id>http://shizhonggan.github.io/</id>
   
   <author>
@@ -15,6 +15,53 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Gitee部署Hexo 博客</title>
+    <link href="http://shizhonggan.github.io/2021/04/07/HexoStudy/HexoGiteeDeploy/"/>
+    <id>http://shizhonggan.github.io/2021/04/07/HexoStudy/HexoGiteeDeploy/</id>
+    <published>2021-04-07T05:44:49.050Z</published>
+    <updated>2021-04-07T06:43:25.292Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h2><p>由于网络限制，Github部署Hexo博客加载速度慢，因此建议采用gitee进行部署。</p><h2 id="部署方法"><a class="markdownIt-Anchor" href="#部署方法"></a> 部署方法</h2><ol><li>注册gitee账号</li><li>新建公开仓库</li><li></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#前言&quot;&gt;&lt;/a&gt; 前言&lt;/h2&gt;
+&lt;p&gt;由于网络限制，Github部署Hexo博客加载速度慢，因此建议采用gitee进行部署。&lt;/p&gt;
+&lt;h2 id=&quot;部署方法&quot;&gt;&lt;a class=&quot;</summary>
+      
+    
+    
+    
+    <category term="Hexo" scheme="http://shizhonggan.github.io/categories/Hexo/"/>
+    
+    
+    <category term="Gitee" scheme="http://shizhonggan.github.io/tags/Gitee/"/>
+    
+    <category term="Hexo" scheme="http://shizhonggan.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo markdown 插入图片解决方法</title>
+    <link href="http://shizhonggan.github.io/2021/04/07/HexoStudy/HexoImageFile/"/>
+    <id>http://shizhonggan.github.io/2021/04/07/HexoStudy/HexoImageFile/</id>
+    <published>2021-04-07T05:36:09.177Z</published>
+    <updated>2021-04-07T05:37:25.947Z</updated>
+    
+    
+    
+    
+    <category term="Hexo" scheme="http://shizhonggan.github.io/categories/Hexo/"/>
+    
+    
+    <category term="前端" scheme="http://shizhonggan.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="Hexo" scheme="http://shizhonggan.github.io/tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>vs code 实用扩展插件</title>
@@ -76,9 +123,9 @@
     <link href="http://shizhonggan.github.io/2021/04/02/SDN/SDN01/"/>
     <id>http://shizhonggan.github.io/2021/04/02/SDN/SDN01/</id>
     <published>2021-04-02T01:13:34.998Z</published>
-    <updated>2021-04-06T08:23:39.539Z</updated>
+    <updated>2021-04-06T08:44:03.671Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>SDN学习目录</p><blockquote><p><a href="../SDN01">SDN核心原理与应用实践(1)–OVS系统架构</a></p><p>SDN核心原理与应用实践(2)–OVS系统架构</p></blockquote></blockquote><h2 id="open-vswitch-ovs"><a class="markdownIt-Anchor" href="#open-vswitch-ovs"></a> Open vSwitch (OVS)</h2><p>OVS 架构分为三个部分:</p><ul><li>内核空间</li><li>用户空间</li><li>配置管理层</li></ul><p><img src="./source/ovs%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84.png" alt="ovs 系统架构" /></p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>SDN学习目录</p><blockquote><p><a href="../SDN01">SDN核心原理与应用实践(1)–OVS系统架构</a></p><p>SDN核心原理与应用实践(2)–OVS系统架构</p></blockquote></blockquote><h2 id="open-vswitch-ovs"><a class="markdownIt-Anchor" href="#open-vswitch-ovs"></a> Open vSwitch (OVS)</h2><p>OVS 架构分为三个部分:</p><ul><li>内核空间</li><li>用户空间</li><li>配置管理层</li></ul><p><img src="./SDN01/ovs%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84.png" alt="ovs 系统架构" /></p>]]></content>
     
     
       
