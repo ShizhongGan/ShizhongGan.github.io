@@ -18,15 +18,15 @@
   
   
   <title>软件定义网络（SDN）学习笔记(1)--iPerf和Netperf性能测试 | 甘士忠个人博客</title>
-  <meta name="description" content="SDN学习目录  SDN学习笔记(0)–wireshark抓包分析 SDN学习笔记(1)–iPerf和Netperf性能测试 SDN学习笔记(2)–OVS系统架构    iPerf and Netperf iPerf是网络性能测试工具，可以测试主机之间的吞吐量。iPerf具有多种参数和特性，支持协议、定时、缓冲区等参数的配置调整，能够测试TCP&#x2F;UDP的最大带宽、延迟抖动、数据包丢失等统计信息。">
+  <meta name="description" content="SDN学习目录  SDN学习笔记(0)–wireshark抓包分析 SDN学习笔记(1)–iPerf和Netperf性能测试 SDN学习笔记(2)–OVS系统架构    1. iPerf and Netperf iPerf是网络性能测试工具，可以测试主机之间的吞吐量。iPerf具有多种参数和特性，支持协议、定时、缓冲区等参数的配置调整，能够测试TCP&#x2F;UDP的最大带宽、延迟抖动、数据包丢失等统计">
 <meta property="og:type" content="article">
 <meta property="og:title" content="软件定义网络（SDN）学习笔记(1)--iPerf和Netperf性能测试">
 <meta property="og:url" content="http://shizhonggan.github.io/2021/04/15/SDN/SDN01_iPerf_Netperf/index.html">
 <meta property="og:site_name" content="钟声">
-<meta property="og:description" content="SDN学习目录  SDN学习笔记(0)–wireshark抓包分析 SDN学习笔记(1)–iPerf和Netperf性能测试 SDN学习笔记(2)–OVS系统架构    iPerf and Netperf iPerf是网络性能测试工具，可以测试主机之间的吞吐量。iPerf具有多种参数和特性，支持协议、定时、缓冲区等参数的配置调整，能够测试TCP&#x2F;UDP的最大带宽、延迟抖动、数据包丢失等统计信息。">
+<meta property="og:description" content="SDN学习目录  SDN学习笔记(0)–wireshark抓包分析 SDN学习笔记(1)–iPerf和Netperf性能测试 SDN学习笔记(2)–OVS系统架构    1. iPerf and Netperf iPerf是网络性能测试工具，可以测试主机之间的吞吐量。iPerf具有多种参数和特性，支持协议、定时、缓冲区等参数的配置调整，能够测试TCP&#x2F;UDP的最大带宽、延迟抖动、数据包丢失等统计">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-04-15T08:15:22.000Z">
-<meta property="article:modified_time" content="2021-04-15T08:55:16.550Z">
+<meta property="article:modified_time" content="2021-04-19T08:47:30.590Z">
 <meta property="article:author" content="甘士忠">
 <meta property="article:tag" content="性能测试">
 <meta property="article:tag" content="iPerf">
@@ -184,7 +184,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SDN/">SDN</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tips/">Tips</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Deep-Learning/">Deep Learning</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SDN/">SDN</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tips/">Tips</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -194,7 +194,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gitee/" rel="tag">Gitee</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Netperf/" rel="tag">Netperf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OVS/" rel="tag">OVS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SDN/" rel="tag">SDN</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitalk/" rel="tag">gitalk</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iPerf/" rel="tag">iPerf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vs-code%E6%8F%92%E4%BB%B6/" rel="tag">vs code插件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" rel="tag">性能测试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/" rel="tag">网络架构</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Few-shot-Learning/" rel="tag">Few-shot Learning</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gitee/" rel="tag">Gitee</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Netperf/" rel="tag">Netperf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OVS/" rel="tag">OVS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SDN/" rel="tag">SDN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Semi-Supervised-Learning/" rel="tag">Semi-Supervised Learning</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitalk/" rel="tag">gitalk</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iPerf/" rel="tag">iPerf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vs-code%E6%8F%92%E4%BB%B6/" rel="tag">vs code插件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" rel="tag">性能测试</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%B8%E6%A0%87/" rel="tag">游标</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/" rel="tag">网络架构</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -204,7 +204,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/Gitee/" style="font-size: 13px;">Gitee</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Netperf/" style="font-size: 13px;">Netperf</a> <a href="/tags/OVS/" style="font-size: 14px;">OVS</a> <a href="/tags/SDN/" style="font-size: 14px;">SDN</a> <a href="/tags/gitalk/" style="font-size: 14px;">gitalk</a> <a href="/tags/hexo/" style="font-size: 14px;">hexo</a> <a href="/tags/iPerf/" style="font-size: 13px;">iPerf</a> <a href="/tags/vs-code%E6%8F%92%E4%BB%B6/" style="font-size: 13px;">vs code插件</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 14px;">前端</a> <a href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" style="font-size: 13px;">性能测试</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/" style="font-size: 14px;">网络架构</a>
+      <a href="/tags/Few-shot-Learning/" style="font-size: 13px;">Few-shot Learning</a> <a href="/tags/Gitee/" style="font-size: 13px;">Gitee</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Netperf/" style="font-size: 13px;">Netperf</a> <a href="/tags/OVS/" style="font-size: 13px;">OVS</a> <a href="/tags/SDN/" style="font-size: 13px;">SDN</a> <a href="/tags/Semi-Supervised-Learning/" style="font-size: 13px;">Semi-Supervised Learning</a> <a href="/tags/gitalk/" style="font-size: 14px;">gitalk</a> <a href="/tags/hexo/" style="font-size: 14px;">hexo</a> <a href="/tags/iPerf/" style="font-size: 13px;">iPerf</a> <a href="/tags/vs-code%E6%8F%92%E4%BB%B6/" style="font-size: 13px;">vs code插件</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 14px;">前端</a> <a href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" style="font-size: 14px;">性能测试</a> <a href="/tags/%E6%B8%B8%E6%A0%87/" style="font-size: 13px;">游标</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 13px;">网络</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/" style="font-size: 13px;">网络架构</a>
     </div>
   </div>
 
@@ -213,7 +213,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">8</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">11</span></li></ul>
     </div>
   </div>
 
@@ -225,6 +225,36 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/SQL/">SQL</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/04/19/SQL/mysql_cursor/" class="title">MYSQL游标使用方法</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-04-19T03:18:43.247Z" itemprop="datePublished">2021-04-19</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Deep-Learning/">Deep Learning</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/04/17/DeepLeaning/Keras/KerasBase/" class="title">Keras学习准备</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-04-17T07:54:23.000Z" itemprop="datePublished">2021-04-17</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-inner">
@@ -244,6 +274,21 @@
             
             <div class="item-inner">
               <p class="item-category">
+                <a class="category-link" href="/categories/Deep-Learning/">Deep Learning</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/04/14/Paper/Few-ShotAdversarialDomainAdaptation/" class="title">[阅读] Few-Shot Adversarial Domain Adaptation</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-04-14T13:54:23.000Z" itemprop="datePublished">2021-04-14</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
                 <a class="category-link" href="/categories/SDN/">SDN</a>
               </p>
               <p class="item-title">
@@ -251,51 +296,6 @@
               </p>
               <p class="item-date">
                 <time datetime="2021-04-09T07:36:22.000Z" itemprop="datePublished">2021-04-09</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/SDN/">SDN</a>
-              </p>
-              <p class="item-title">
-                <a href="/2021/04/08/SDN/SDN02_ovs/" class="title">软件定义网络（SDN）学习笔记(2)--OVS系统架构</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2021-04-08T13:31:04.000Z" itemprop="datePublished">2021-04-08</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/Hexo/">Hexo</a>
-              </p>
-              <p class="item-title">
-                <a href="/2021/04/07/HexoStudy/HexoImageFile/" class="title">Hexo markdown 插入图片解决方法</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2021-04-07T12:41:21.000Z" itemprop="datePublished">2021-04-07</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/Hexo/">Hexo</a>
-              </p>
-              <p class="item-title">
-                <a href="/2021/04/07/HexoStudy/Gitalk403Solution/" class="title">Gitalk 评论登录出现403 解决方法</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2021-04-07T11:22:12.000Z" itemprop="datePublished">2021-04-07</time>
               </p>
             </div>
           </li>
@@ -368,7 +368,7 @@
 <p><a href="/2021/04/08/SDN/SDN02_ovs/">SDN学习笔记(2)–OVS系统架构</a></p>
 </blockquote>
 </blockquote>
-<h2 id="iperf-and-netperf"><a class="markdownIt-Anchor" href="#iperf-and-netperf"></a> iPerf and Netperf</h2>
+<h2 id="1-iperf-and-netperf"><a class="markdownIt-Anchor" href="#1-iperf-and-netperf"></a> 1. iPerf and Netperf</h2>
 <p>iPerf是网络性能测试工具，可以测试主机之间的吞吐量。iPerf具有多种参数和特性，支持协议、定时、缓冲区等参数的配置调整，能够测试TCP/UDP的最大带宽、延迟抖动、数据包丢失等统计信息。iPerf基于Server/Client的工作模式,客户端向服务端发送一定量的数据，服务端统计并计算带宽、延时和抖动等信息。</p>
 <ul>
 <li>命令格式： iperf [-s|-c host] [options]</li>
@@ -377,14 +377,14 @@
 <ul>
 <li>命令格式：netperf [global options] --[test-specific options]</li>
 </ul>
-<h2 id="性能测试指标"><a class="markdownIt-Anchor" href="#性能测试指标"></a> 性能测试指标</h2>
+<h2 id="2-性能测试指标"><a class="markdownIt-Anchor" href="#2-性能测试指标"></a> 2. 性能测试指标</h2>
 <ol>
 <li>网络吞吐量：单位时间内通过某个网络(信道或接口)的数据量，吞吐量受网络的带宽或网络的额定速率限制，单位bit/s</li>
 <li>网络延时：一个数据包从用户的计算机发送到网站服务器，然后立即从网站服务器返回用户计算机的来回时间。影响网络演示的主要因素：路由的跳数和网络的流量。交换机延时(Latency)是指从交换机接收到数据包到开始向目的端口复制数据包之间的时间间隔。有许多因素会影响交换机演示大小，如转发技术等。</li>
 <li>抖动：用于描述包在网络中的传输延时变化，抖动越小，说明网络质量越稳定、越好。</li>
 <li>丢包率：理想状态下发送多少数据包就能接收到多少数据包。但由于信号衰减、网络质量等诸多因素的影响并不能达到理想状态。丢包率是指测试中多丢失的数据包数量占所有发送数据包的比率。</li>
 </ol>
-<h2 id="iperf和netperf比较"><a class="markdownIt-Anchor" href="#iperf和netperf比较"></a> iPerf和Netperf比较</h2>
+<h2 id="3-iperf和netperf比较"><a class="markdownIt-Anchor" href="#3-iperf和netperf比较"></a> 3. iPerf和Netperf比较</h2>
 <table>
 <thead>
 <tr>
@@ -436,7 +436,10 @@
 </tr>
 </tbody>
 </table>
-
+<h2 id="4-测试命令"><a class="markdownIt-Anchor" href="#4-测试命令"></a> 4. 测试命令</h2>
+<h3 id="41-iperf"><a class="markdownIt-Anchor" href="#41-iperf"></a> 4.1 iPerf</h3>
+<h4 id="一-tcp测试"><a class="markdownIt-Anchor" href="#一-tcp测试"></a> 一、TCP测试</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 主机一 10.0.0.8</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> iperf -s <span class="comment"># 作为服务端</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 主机二</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> iperf -c 10.0.0.8</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> iperf -c 10.0.0.08 -t 32 -i 8 <span class="comment"># 测试时间32s,输出频率8s</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> iperf -c 10.0.0.08 -n 2000M -i 5 <span class="comment"># 数据包为2000M,输出频率5s</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 主机三 与主机二 分别执行上述命令，可以观察主机一的测试结果</span></span></span><br></pre></td></tr></table></figure>
       
     </div>
     <div class="article-footer">
@@ -489,9 +492,13 @@
   
   <ul class="pager pull-left">
     
+    <li class="prev">
+      <a href="/2021/04/17/DeepLeaning/Keras/KerasBase/" title="Keras学习准备"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
     
     <li class="next">
-      <a href="/2021/04/09/SDN/SDN00_wireshark/" title="软件定义网络（SDN）学习笔记(0)--wireshark抓包分析"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2021/04/14/Paper/Few-ShotAdversarialDomainAdaptation/" title="[阅读] Few-Shot Adversarial Domain Adaptation"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
