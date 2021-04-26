@@ -18,16 +18,16 @@
   
   
   <title>软件定义网络（SDN）学习笔记(4)--OVS系统架构 | 甘士忠个人博客</title>
-  <meta name="description" content="SDN学习目录  SDN学习笔记(0)–wireshark抓包分析 SDN学习笔记(1)–iPerf和Netperf性能测试 SDN学习笔记(2)–Scapy交互式数据处理与Postman HTTP请求测试 SDN学习笔记(3)–OVS系统架构    Open vSwitch (OVS) OVS 架构分为三个部分:  内核空间：包含了流表（Flow Table）和Datapath模块（类似于网桥">
+  <meta name="description" content="SDN学习目录  SDN学习笔记(0)–wireshark抓包分析 SDN学习笔记(1)–iPerf和Netperf性能测试 SDN学习笔记(2)–Scapy交互式数据处理与Postman HTTP请求测试 SDN学习笔记(3)–OVS系统架构    1 基本概念  1.1 交换机 交换机（Switch）是一种在通信系统中完成信息交换功能的设备。它可以为接入交换机的任意两个网络节点提供独享的电信">
 <meta property="og:type" content="article">
 <meta property="og:title" content="软件定义网络（SDN）学习笔记(4)--OVS系统架构">
 <meta property="og:url" content="http://shizhonggan.github.io/2021/04/08/SDN/SDN03_ovs/index.html">
 <meta property="og:site_name" content="钟声">
-<meta property="og:description" content="SDN学习目录  SDN学习笔记(0)–wireshark抓包分析 SDN学习笔记(1)–iPerf和Netperf性能测试 SDN学习笔记(2)–Scapy交互式数据处理与Postman HTTP请求测试 SDN学习笔记(3)–OVS系统架构    Open vSwitch (OVS) OVS 架构分为三个部分:  内核空间：包含了流表（Flow Table）和Datapath模块（类似于网桥">
+<meta property="og:description" content="SDN学习目录  SDN学习笔记(0)–wireshark抓包分析 SDN学习笔记(1)–iPerf和Netperf性能测试 SDN学习笔记(2)–Scapy交互式数据处理与Postman HTTP请求测试 SDN学习笔记(3)–OVS系统架构    1 基本概念  1.1 交换机 交换机（Switch）是一种在通信系统中完成信息交换功能的设备。它可以为接入交换机的任意两个网络节点提供独享的电信">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ganshizhong.gitee.io/blogimages/SDN/ovs%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84.png">
 <meta property="article:published_time" content="2021-04-08T13:31:04.000Z">
-<meta property="article:modified_time" content="2021-04-20T08:45:29.589Z">
+<meta property="article:modified_time" content="2021-04-26T08:49:22.004Z">
 <meta property="article:author" content="甘士忠">
 <meta property="article:tag" content="网络架构">
 <meta property="article:tag" content="SDN">
@@ -186,7 +186,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Deep-Learning/">Deep Learning</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SDN/">SDN</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tips/">Tips</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Deep-Learning/">Deep Learning</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SDN/">SDN</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tips/">Tips</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -196,7 +196,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Few-shot-Learning/" rel="tag">Few-shot Learning</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gitee/" rel="tag">Gitee</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Netperf/" rel="tag">Netperf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OVS/" rel="tag">OVS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Postman/" rel="tag">Postman</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SDN/" rel="tag">SDN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scapy/" rel="tag">Scapy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Semi-Supervised-Learning/" rel="tag">Semi-Supervised Learning</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitalk/" rel="tag">gitalk</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iPerf/" rel="tag">iPerf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vs-code%E6%8F%92%E4%BB%B6/" rel="tag">vs code插件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" rel="tag">性能测试</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%B8%E6%A0%87/" rel="tag">游标</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/" rel="tag">网络架构</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Few-shot-Learning/" rel="tag">Few-shot Learning</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gitee/" rel="tag">Gitee</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Netperf/" rel="tag">Netperf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OVS/" rel="tag">OVS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Postman/" rel="tag">Postman</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SDN/" rel="tag">SDN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scapy/" rel="tag">Scapy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Semi-Supervised-Learning/" rel="tag">Semi-Supervised Learning</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitalk/" rel="tag">gitalk</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iPerf/" rel="tag">iPerf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vs-code%E6%8F%92%E4%BB%B6/" rel="tag">vs code插件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" rel="tag">性能测试</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%B8%E6%A0%87/" rel="tag">游标</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/" rel="tag">网络架构</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -206,7 +206,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/Few-shot-Learning/" style="font-size: 13px;">Few-shot Learning</a> <a href="/tags/Gitee/" style="font-size: 13px;">Gitee</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Netperf/" style="font-size: 13px;">Netperf</a> <a href="/tags/OVS/" style="font-size: 13px;">OVS</a> <a href="/tags/Postman/" style="font-size: 13px;">Postman</a> <a href="/tags/SDN/" style="font-size: 13px;">SDN</a> <a href="/tags/Scapy/" style="font-size: 13px;">Scapy</a> <a href="/tags/Semi-Supervised-Learning/" style="font-size: 13px;">Semi-Supervised Learning</a> <a href="/tags/gitalk/" style="font-size: 14px;">gitalk</a> <a href="/tags/hexo/" style="font-size: 14px;">hexo</a> <a href="/tags/iPerf/" style="font-size: 13px;">iPerf</a> <a href="/tags/vs-code%E6%8F%92%E4%BB%B6/" style="font-size: 13px;">vs code插件</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 14px;">前端</a> <a href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" style="font-size: 14px;">性能测试</a> <a href="/tags/%E6%B8%B8%E6%A0%87/" style="font-size: 13px;">游标</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 13px;">网络</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/" style="font-size: 13px;">网络架构</a>
+      <a href="/tags/Few-shot-Learning/" style="font-size: 13px;">Few-shot Learning</a> <a href="/tags/Gitee/" style="font-size: 13px;">Gitee</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Netperf/" style="font-size: 13px;">Netperf</a> <a href="/tags/OVS/" style="font-size: 13px;">OVS</a> <a href="/tags/Postman/" style="font-size: 13px;">Postman</a> <a href="/tags/SDN/" style="font-size: 13px;">SDN</a> <a href="/tags/Scapy/" style="font-size: 13px;">Scapy</a> <a href="/tags/Semi-Supervised-Learning/" style="font-size: 13px;">Semi-Supervised Learning</a> <a href="/tags/docker/" style="font-size: 13px;">docker</a> <a href="/tags/gitalk/" style="font-size: 14px;">gitalk</a> <a href="/tags/hexo/" style="font-size: 14px;">hexo</a> <a href="/tags/iPerf/" style="font-size: 13px;">iPerf</a> <a href="/tags/vs-code%E6%8F%92%E4%BB%B6/" style="font-size: 13px;">vs code插件</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 14px;">前端</a> <a href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" style="font-size: 14px;">性能测试</a> <a href="/tags/%E6%B8%B8%E6%A0%87/" style="font-size: 13px;">游标</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 13px;">网络</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/" style="font-size: 13px;">网络架构</a>
     </div>
   </div>
 
@@ -215,7 +215,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">12</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">13</span></li></ul>
     </div>
   </div>
 
@@ -227,6 +227,21 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Docker/">Docker</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/04/26/Docker/docker_install/" class="title">Docker 安装[未完成]</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-04-26T08:49:04.000Z" itemprop="datePublished">2021-04-26</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-inner">
@@ -264,7 +279,7 @@
                 <a class="category-link" href="/categories/Deep-Learning/">Deep Learning</a>
               </p>
               <p class="item-title">
-                <a href="/2021/04/17/DeepLeaning/Keras/KerasBase/" class="title">Keras学习准备</a>
+                <a href="/2021/04/17/DeepLeaning/Keras/KerasBase/" class="title">Keras学习准备[待续...]</a>
               </p>
               <p class="item-date">
                 <time datetime="2021-04-17T07:54:23.000Z" itemprop="datePublished">2021-04-17</time>
@@ -283,21 +298,6 @@
               </p>
               <p class="item-date">
                 <time datetime="2021-04-15T08:15:22.000Z" itemprop="datePublished">2021-04-15</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/Deep-Learning/">Deep Learning</a>
-              </p>
-              <p class="item-title">
-                <a href="/2021/04/14/Paper/Few-ShotAdversarialDomainAdaptation/" class="title">[阅读] Few-Shot Adversarial Domain Adaptation</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2021-04-14T13:54:23.000Z" itemprop="datePublished">2021-04-14</time>
               </p>
             </div>
           </li>
@@ -371,7 +371,25 @@
 <p><a href="/2021/04/08/SDN/SDN03_ovs/">SDN学习笔记(3)–OVS系统架构</a></p>
 </blockquote>
 </blockquote>
-<h2 id="open-vswitch-ovs"><a class="markdownIt-Anchor" href="#open-vswitch-ovs"></a> Open vSwitch (OVS)</h2>
+<h2 id="1-基本概念"><a class="markdownIt-Anchor" href="#1-基本概念"></a> 1 基本概念</h2>
+<h3 id="11-交换机"><a class="markdownIt-Anchor" href="#11-交换机"></a> 1.1 交换机</h3>
+<p>交换机（Switch）是一种在通信系统中完成信息交换功能的设备。它可以为接入交换机的任意两个网络节点提供独享的电信号通路。最常见的交换机是以太网交换机。其他常见的还有电话语音交换机、光纤交换机等。目前，二层交换技术发展比较成熟，二层交换机（Layer 2 switches）是指只支持OSI第二层（数据链路层）交换技术的交换机。</p>
+<h3 id="12-工作原理"><a class="markdownIt-Anchor" href="#12-工作原理"></a> 1.2 工作原理</h3>
+<p>交换机拥有一条很高带宽的背部总线和内部交换矩阵。交换机的所有的端口都挂接在这条背部总线上，控制电路收到数据包以后，处理端口会查找内存中的地址对照表以确定目的MAC（网卡的硬件地址）的NIC（网卡）挂接在哪个端口上，通过内部交换矩阵迅速将数据包传送到目的端口，目的MAC若不存在，广播到所有的端口，接收端口回应后交换机会“学习”新的MAC地址，并把它添加入内部MAC地址表中，并刷新CAM表，表中有MAC地址，对应的端口号，端口所属的VLAN信息，交换机在二层转发数据时根据CAM表查找出端口。使用交换机也可以把网络“分段”，通过对照IP地址表，交换机只允许必要的网络流量通过交换机。通过交换机的过滤和转发，可以有效的减少冲突域，但不能划分广播域。交换机在同一时刻可进行多个端口对之间的数据传输。每一端口都可视为独立的网段，连接在其上的网络设备独自享有全部的带宽，无须同其他设备竞争使用。当节点A向节点D发送数据时，节点B可同时向节点C发送数据，而且这两个传输都享有网络的全部带宽，有着自己的虚拟连接。</p>
+<h3 id="13-作用与功能"><a class="markdownIt-Anchor" href="#13-作用与功能"></a> 1.3 作用与功能</h3>
+<p>交换机的常见功能如下：</p>
+<ul>
+<li>MAC地址学习：以太网交换机了解每一端口相连设备的MAC地址，并将地址同相应的端口映射起来存放在交换机缓存中的MAC地址表中。</li>
+<li>转发/过滤：当一个数据帧的目的地址在MAC地址表中有映射时，它被转发到连接目的节点的端口而不是所有端口（如该数据帧为广播/组播帧则转发至所有端口）。</li>
+<li>消除回路：当交换机包括一个冗余回路时，以太网交换机通过生成树协议避免回路的产生，同时允许存在后备路径。</li>
+</ul>
+<h2 id="2-open-vswitch-ovs"><a class="markdownIt-Anchor" href="#2-open-vswitch-ovs"></a> 2 Open vSwitch (OVS)</h2>
+<p>Open vSwitch（OVS）是一个高质量的、多层虚拟交换机。OVS遵循开源Apache2.0许可，通过可编程扩展，OVS可以实现大规模网络的自动化（配置、管理、维护），同时支持现有标准管理接口和协议（比如NetFlow、sFlow、SPAN、RSPAN、CLI、LACP、802.1ag等）。此外OVS支持多种Linux虚拟化技术，包括Xen/XenServer，KVM，和VirtualBox等。虽然是虚拟交换机，但是其工作原理与物理交换机类似。在虚拟交换机的实现中，其两端分别连接着物理网卡和多块虚拟网卡，同时虚拟交换机内部会维护一张映射表，根据MAC地址寻找对应的虚拟机链路进而完成数据转发。</p>
+<p>OVS交换机有两种工作模式</p>
+<ul>
+<li>一种为SDN交换机，另一种为普通交换机。作为SDN交换机时，显示Fail_mode为Secure，在这种模式下OVS交换机需要控制器发送转发规则，指挥交换机去工作</li>
+<li>作为普通交换机时，显示Fail_mode是Standalone。其和物理交换机工作模式一样，记录端口号和MAC地址的对应关系，基于对应关系转发数据帧。交换机默认状态是SDN交换机。</li>
+</ul>
 <p>OVS 架构分为三个部分:</p>
 <ul>
 <li>内核空间：包含了流表（Flow Table）和Datapath模块（类似于网桥，主要负责对数据分组进行操作）。</li>
@@ -392,7 +410,7 @@
 <li>配置管理层：包括ovs-dpctl, ovs-ofctl, ovs-appctl, ovs-vsctl和ovsdb-tool等，主要用于和vswitchd,ovsdb之间进行交互操作以及ovs的安装配置和部署</li>
 </ul>
 <p><img src="https://ganshizhong.gitee.io/blogimages/SDN/ovs%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84.png" alt="ovs 系统架构" /></p>
-<h2 id="ovs安装使用"><a class="markdownIt-Anchor" href="#ovs安装使用"></a> OVS安装使用</h2>
+<h2 id="3-ovs安装使用"><a class="markdownIt-Anchor" href="#3-ovs安装使用"></a> 3. OVS安装使用</h2>
 <p>OVS可以运行在任何基于Linux的虚拟化平台，包括KVM, VirtualBox, Xen等，其代码都是基于C编写，所以易于移植到其他环境。安装有两种方法：一种通过二进制文件安装apt-get；另外一种是源码安装。</p>
 
       
