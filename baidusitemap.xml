@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://shizhonggan.github.io/2021/04/28/Docker/basic_method/</loc>
+    <lastmod>2021-05-26</lastmod>
+  </url>
+  <url>
+    <loc>http://shizhonggan.github.io/2021/04/27/Docker/netdisconnected/</loc>
+    <lastmod>2021-05-26</lastmod>
+  </url>
+  <url>
     <loc>http://shizhonggan.github.io/2021/05/26/Python/aws_boto3_paramiko/</loc>
     <lastmod>2021-05-26</lastmod>
   </url>
@@ -17,19 +25,11 @@
     <lastmod>2021-05-13</lastmod>
   </url>
   <url>
-    <loc>http://shizhonggan.github.io/2021/04/28/Docker/basic_method/</loc>
-    <lastmod>2021-04-30</lastmod>
-  </url>
-  <url>
     <loc>http://shizhonggan.github.io/2021/04/26/Docker/docker_install/</loc>
     <lastmod>2021-04-28</lastmod>
   </url>
   <url>
     <loc>http://shizhonggan.github.io/2021/04/26/SDN/SDN03_ovs/</loc>
-    <lastmod>2021-04-27</lastmod>
-  </url>
-  <url>
-    <loc>http://shizhonggan.github.io/2021/04/27/Docker/netdisconnected/</loc>
     <lastmod>2021-04-27</lastmod>
   </url>
   <url>
