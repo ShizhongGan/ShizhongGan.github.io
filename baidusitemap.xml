@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://shizhonggan.github.io/2021/05/26/Python/aws_boto3_paramiko/</loc>
+    <lastmod>2021-05-26</lastmod>
+  </url>
+  <url>
+    <loc>http://shizhonggan.github.io/2021/05/24/SDN/SND05_OpenDaylight/</loc>
+    <lastmod>2021-05-24</lastmod>
+  </url>
+  <url>
+    <loc>http://shizhonggan.github.io/2021/05/24/SDN/SDN04_Mininet/</loc>
+    <lastmod>2021-05-24</lastmod>
+  </url>
+  <url>
     <loc>http://shizhonggan.github.io/2021/05/20/Python/paramiko/</loc>
     <lastmod>2021-05-20</lastmod>
   </url>
