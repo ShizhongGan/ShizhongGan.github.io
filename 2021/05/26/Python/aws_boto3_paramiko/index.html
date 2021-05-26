@@ -26,7 +26,7 @@
 <meta property="og:description" content="1 介绍Boto3是AWS python版的SDK，可以向python开发者在编写程序过程中使用Amazon S3和 Amazon EC2等服务。 Boto提供了简单的面向对象的API和基本的AWS相关服务。Boto3是最新版本，老版本例如boto2不建议使用。 这篇文章介绍了如何在本地windows环境下，进行AWS云服务的一些基本操作，例如创建实例创建、卷创建和挂载、资源状态查询、资源使用后的">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-05-26T00:36:04.000Z">
-<meta property="article:modified_time" content="2021-05-26T02:59:52.082Z">
+<meta property="article:modified_time" content="2021-05-26T03:15:18.361Z">
 <meta property="article:author" content="甘士忠">
 <meta property="article:tag" content="paramiko">
 <meta property="article:tag" content="AWS">
@@ -285,7 +285,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">16</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">16</span></li></ul>
     </div>
   </div>
 
@@ -316,36 +316,6 @@
             
             <div class="item-inner">
               <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/2021/05/24/SDN/SND05_OpenDaylight/" class="title">(no title)</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2021-05-24T01:10:33.757Z" itemprop="datePublished">2021-05-24</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/2021/05/24/SDN/SDN04_Mininet/" class="title">(no title)</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2021-05-24T01:10:10.239Z" itemprop="datePublished">2021-05-24</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
                 <a class="category-link" href="/categories/%E8%BF%90%E7%BB%B4/">运维</a>
               </p>
               <p class="item-title">
@@ -368,6 +338,36 @@
               </p>
               <p class="item-date">
                 <time datetime="2021-05-18T13:44:23.000Z" itemprop="datePublished">2021-05-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Docker/">Docker</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/04/28/Docker/basic_method/" class="title">Docker 常用命令方法</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-04-28T03:03:04.000Z" itemprop="datePublished">2021-04-28</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Docker/">Docker</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/04/27/Docker/netdisconnected/" class="title">Docker 容器内网络无法连接</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-04-27T08:09:04.000Z" itemprop="datePublished">2021-04-27</time>
               </p>
             </div>
           </li>
@@ -461,9 +461,9 @@
 <p> 该命令主要可以进行EC2云服务中的各类资源的相关操作。该命令与client有交集的部分也有独立的一部分。</p>
 </li>
 </ol>
-<h3 id="3-3-控制AWS代码"><a href="#3-3-控制AWS代码" class="headerlink" title="3.3 控制AWS代码"></a>3.3 控制AWS代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> boto3</span><br><span class="line"></span><br><span class="line"><span class="comment"># 先调用以下两个</span></span><br><span class="line">ec2 = boto3.client(<span class="string">&quot;ec2&quot;</span>) </span><br><span class="line">ec2_resource = boto3.resource(<span class="string">&quot;ec2&quot;</span>) </span><br><span class="line"></span><br><span class="line"><span class="comment">## 创建实例，返回的是实例的详细信息</span></span><br><span class="line">createInstance = ec2_resource.create_instances(</span><br><span class="line">    Placement=&#123;</span><br><span class="line">        <span class="string">&quot;AvailabilityZone&quot;</span>: <span class="string">&quot;cn-north-1b&quot;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    ImageId=<span class="string">&quot;ami-0c52e2685c7218558&quot;</span>, <span class="comment"># 可先从AWS console上查看</span></span><br><span class="line">    InstanceType=<span class="string">&quot;t2.micro&quot;</span>,</span><br><span class="line">    MaxCount=<span class="number">1</span>, <span class="comment"># 可同时创建多个, </span></span><br><span class="line">    MinCount=<span class="number">1</span>,</span><br><span class="line">    KeyName=<span class="string">&quot;gsz&quot;</span>, <span class="comment"># 实现创建好的key pairs</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">instanceID = createInstance[<span class="number">0</span>].<span class="built_in">id</span> <span class="comment"># 从返回的数据中得到实例的ID</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 状态查询,是为了等待创建成功，状态可使用情况下进行下一步操作</span></span><br><span class="line">instance_state = ec2_resource.Instance(instanceID).state[<span class="string">&quot;Name&quot;</span>] <span class="comment"># 根据实例ID查询状态</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 创建卷，此处貌似&quot;ec2&quot;和&quot;ec2_resource&quot;都具有创建卷的方法</span></span><br><span class="line">snap2vol = ec2.create_volume(</span><br><span class="line">    AvailabilityZone= <span class="string">&quot;cn-north-1b&quot;</span>, <span class="comment"># 要与创建的实例相同</span></span><br><span class="line">    Encrypted=<span class="literal">True</span>,</span><br><span class="line">    Size = <span class="number">100</span>, <span class="comment"># 单位GiBs</span></span><br><span class="line">    SnapshotId = <span class="string">&quot;snap-096b5af48e45fe262&quot;</span> <span class="comment"># 通过某个快照ID创建，如无则为常规卷</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">## 挂载卷</span></span><br><span class="line">volID = create_vol[<span class="string">&#x27;VolumeId&#x27;</span>] <span class="comment"># 获取卷ID</span></span><br><span class="line">attach_vol2 = ec2.attach_volume(</span><br><span class="line">    ice=Device2,  <span class="comment"># 挂载路径  /dev/sdf</span></span><br><span class="line">    InstanceId=InstanceID,  <span class="comment"># 实例ID</span></span><br><span class="line">    VolumeId=volID, <span class="comment">#卷ID</span></span><br><span class="line">)</span><br><span class="line">attach_state = ec2_resource.Volume(datavolID).attachments[<span class="number">0</span>][<span class="string">&#x27;State&#x27;</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 删除资源</span></span><br><span class="line">instance = ec2_resource.Instance(instanceID)</span><br><span class="line">instance.terminate()</span><br><span class="line">volume = ec2_resource.Volume(vol_id)</span><br><span class="line">volume.delete()</span><br></pre></td></tr></table></figure>
+<h3 id="3-3-控制AWS代码"><a href="#3-3-控制AWS代码" class="headerlink" title="3.3 控制AWS代码"></a>3.3 控制AWS代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> boto3</span><br><span class="line"></span><br><span class="line"><span class="comment"># 先调用以下两个</span></span><br><span class="line">ec2 = boto3.client(<span class="string">&quot;ec2&quot;</span>) </span><br><span class="line">ec2_resource = boto3.resource(<span class="string">&quot;ec2&quot;</span>) </span><br><span class="line"></span><br><span class="line"><span class="comment">## 创建实例，返回的是实例的详细信息</span></span><br><span class="line">createInstance = ec2_resource.create_instances(</span><br><span class="line">    Placement=&#123;</span><br><span class="line">        <span class="string">&quot;AvailabilityZone&quot;</span>: <span class="string">&quot;cn-north-1b&quot;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    ImageId=<span class="string">&quot;ami-0c52e2685c7218558&quot;</span>, <span class="comment"># 可先从AWS console上查看</span></span><br><span class="line">    InstanceType=<span class="string">&quot;t2.micro&quot;</span>,</span><br><span class="line">    MaxCount=<span class="number">1</span>, <span class="comment"># 可同时创建多个, </span></span><br><span class="line">    MinCount=<span class="number">1</span>,</span><br><span class="line">    KeyName=<span class="string">&quot;gsz&quot;</span>, <span class="comment"># 实现创建好的key pairs</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">instanceID = createInstance[<span class="number">0</span>].<span class="built_in">id</span> <span class="comment"># 从返回的数据中得到实例的ID</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 状态查询,是为了等待创建成功，状态可使用情况下进行下一步操作</span></span><br><span class="line">instance_state = ec2_resource.Instance(instanceID).state[<span class="string">&quot;Name&quot;</span>] <span class="comment"># 根据实例ID查询状态</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 创建卷，此处貌似&quot;ec2&quot;和&quot;ec2_resource&quot;都具有创建卷的方法</span></span><br><span class="line">snap2vol = ec2.create_volume(</span><br><span class="line">    AvailabilityZone= <span class="string">&quot;cn-north-1b&quot;</span>, <span class="comment"># 要与创建的实例相同</span></span><br><span class="line">    Encrypted=<span class="literal">True</span>,</span><br><span class="line">    Size = <span class="number">100</span>, <span class="comment"># 单位GiBs</span></span><br><span class="line">    SnapshotId = <span class="string">&quot;snap-096b5af48e45fe262&quot;</span> <span class="comment"># 通过某个快照ID创建，如无则为常规卷</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">## 挂载卷</span></span><br><span class="line">volID = create_vol[<span class="string">&#x27;VolumeId&#x27;</span>] <span class="comment"># 获取卷ID</span></span><br><span class="line">attach_vol2 = ec2.attach_volume(</span><br><span class="line">    ice=Device2,  <span class="comment"># 挂载路径  /dev/sdf</span></span><br><span class="line">    InstanceId=InstanceID,  <span class="comment"># 实例ID</span></span><br><span class="line">    VolumeId=volID, <span class="comment">#卷ID</span></span><br><span class="line">)</span><br><span class="line">attach_state = ec2_resource.Volume(datavolID).attachments[<span class="number">0</span>][<span class="string">&#x27;State&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">## 删除资源</span></span><br><span class="line">instance = ec2_resource.Instance(instanceID)</span><br><span class="line">instance.terminate()</span><br><span class="line">volume = ec2_resource.Volume(vol_id)</span><br><span class="line">volume.delete()</span><br></pre></td></tr></table></figure>
 
-<h3 id="3-4-远程操作云主机"><a href="#3-4-远程操作云主机" class="headerlink" title="3.4 远程操作云主机"></a>3.4 远程操作云主机</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> paramiko</span><br><span class="line"><span class="comment">## 实例化SSHClinet</span></span><br><span class="line">sshc = paramiko.SSHClient()</span><br><span class="line">sshc.set_missing_host_key_policy(paramiko.AutoAddPolicy())</span><br><span class="line">sshc.connect(host, username=username,port=port,pkey=key)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 传文件</span></span><br><span class="line">sftp = sshc.open_sftp()</span><br><span class="line">localfile1 = <span class="string">&quot;path to your locoal file&quot;</span></span><br><span class="line">remotepath1 = <span class="string">&quot;path/file.name&quot;</span></span><br><span class="line">sftp.put(localfile1, remotepath1)</span><br><span class="line">sftp.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">commands = [</span><br><span class="line">    <span class="string">&quot;shell command list&quot;</span></span><br><span class="line">]</span><br><span class="line"><span class="keyword">for</span> command <span class="keyword">in</span> commands:</span><br><span class="line">    stdin, stdout, stderr = sshc.exec_command(command)</span><br></pre></td></tr></table></figure>
+<h3 id="3-4-远程操作云主机"><a href="#3-4-远程操作云主机" class="headerlink" title="3.4 远程操作云主机"></a>3.4 远程操作云主机</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> paramiko</span><br><span class="line"><span class="comment">## 实例化SSHClinet</span></span><br><span class="line">sshc = paramiko.SSHClient()</span><br><span class="line">sshc.set_missing_host_key_policy(paramiko.AutoAddPolicy())</span><br><span class="line">sshc.connect(host, username=username,port=port,pkey=key)</span><br><span class="line"></span><br><span class="line"><span class="comment">## 传文件</span></span><br><span class="line">sftp = sshc.open_sftp()</span><br><span class="line">localfile1 = <span class="string">&quot;path to your locoal file&quot;</span></span><br><span class="line">remotepath1 = <span class="string">&quot;path/file.name&quot;</span></span><br><span class="line">sftp.put(localfile1, remotepath1)</span><br><span class="line">sftp.close()</span><br><span class="line"></span><br><span class="line">commands = [</span><br><span class="line">    <span class="string">&quot;shell command list&quot;</span></span><br><span class="line">]</span><br><span class="line"><span class="keyword">for</span> command <span class="keyword">in</span> commands:</span><br><span class="line">    stdin, stdout, stderr = sshc.exec_command(command)</span><br></pre></td></tr></table></figure>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>Paramiko: <a target="_blank" rel="noopener" href="https://www.cnblogs.com/xiao-apple36/p/9144092.html">https://www.cnblogs.com/xiao-apple36/p/9144092.html</a></p>
 <p>Boto3: <a target="_blank" rel="noopener" href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#ec2">https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#ec2</a></p>
 
@@ -521,7 +521,7 @@
     
     
     <li class="next">
-      <a href="/2021/05/24/SDN/SND05_OpenDaylight/" title="(no title)"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2021/05/20/Python/paramiko/" title="Paramiko执行后台命令报错"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
