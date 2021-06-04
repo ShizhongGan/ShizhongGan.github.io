@@ -17,25 +17,22 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>软件定义网络（SDN）学习笔记(4)--OVS系统架构 | 甘士忠个人博客</title>
-  <meta name="description" content="SDN学习目录  SDN学习笔记(0)–wireshark抓包分析 SDN学习笔记(1)–iPerf和Netperf性能测试 SDN学习笔记(2)–Scapy交互式数据处理与Postman HTTP请求测试 SDN学习笔记(3)–OVS系统架构   1 基本概念1.1 交换机交换机（Switch）是一种在通信系统中完成信息交换功能的设备。它可以为接入交换机的任意两个网络节点提供独享的电信号通路。">
+  <title>软件定义网络（SDN）学习笔记(7)--Floodlight | 甘士忠个人博客</title>
+  <meta name="description" content="安装123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051## 通用版本java 卸载dpkg -l |grep -i jdkapt-get purge openjdk*apt-get purge icedtea-* openjdk-*## 安装1（此方法不行）sud">
 <meta property="og:type" content="article">
-<meta property="og:title" content="软件定义网络（SDN）学习笔记(4)--OVS系统架构">
-<meta property="og:url" content="http://shizhonggan.github.io/2021/04/26/SDN/SDN03_ovs/index.html">
+<meta property="og:title" content="软件定义网络（SDN）学习笔记(7)--Floodlight">
+<meta property="og:url" content="http://shizhonggan.github.io/2021/06/03/SDN/SDN07_Floodlight/index.html">
 <meta property="og:site_name" content="钟声">
-<meta property="og:description" content="SDN学习目录  SDN学习笔记(0)–wireshark抓包分析 SDN学习笔记(1)–iPerf和Netperf性能测试 SDN学习笔记(2)–Scapy交互式数据处理与Postman HTTP请求测试 SDN学习笔记(3)–OVS系统架构   1 基本概念1.1 交换机交换机（Switch）是一种在通信系统中完成信息交换功能的设备。它可以为接入交换机的任意两个网络节点提供独享的电信号通路。">
+<meta property="og:description" content="安装123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051## 通用版本java 卸载dpkg -l |grep -i jdkapt-get purge openjdk*apt-get purge icedtea-* openjdk-*## 安装1（此方法不行）sud">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://ganshizhong.gitee.io/blogimages/SDN/ovs%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84.png">
-<meta property="article:published_time" content="2021-04-26T13:31:04.000Z">
-<meta property="article:modified_time" content="2021-04-27T09:01:10.593Z">
+<meta property="article:published_time" content="2021-06-03T05:11:04.000Z">
+<meta property="article:modified_time" content="2021-06-04T07:21:18.917Z">
 <meta property="article:author" content="甘士忠">
-<meta property="article:tag" content="网络架构">
 <meta property="article:tag" content="SDN">
-<meta property="article:tag" content="OVS">
+<meta property="article:tag" content="Floodlight">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://ganshizhong.gitee.io/blogimages/SDN/ovs%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://shizhonggan.github.io/2021/04/26/SDN/SDN03_ovs/index.html">
+  <link rel="canonical" href="http://shizhonggan.github.io/2021/06/03/SDN/SDN07_Floodlight/index.html">
   
   
     <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -268,7 +265,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AWS/">AWS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Deep-Learning/">Deep Learning</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SDN/">SDN</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tips/">Tips</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BF%90%E7%BB%B4/">运维</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AWS/">AWS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Deep-Learning/">Deep Learning</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SDN/">SDN</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tips/">Tips</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BF%90%E7%BB%B4/">运维</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -278,7 +275,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/AWS/" style="font-size: 13px;">AWS</a> <a href="/tags/DevOps/" style="font-size: 13px;">DevOps</a> <a href="/tags/Docker/" style="font-size: 14px;">Docker</a> <a href="/tags/Few-shot-Learning/" style="font-size: 13px;">Few-shot Learning</a> <a href="/tags/Gitee/" style="font-size: 13px;">Gitee</a> <a href="/tags/Hexo/" style="font-size: 13.5px;">Hexo</a> <a href="/tags/Netperf/" style="font-size: 13px;">Netperf</a> <a href="/tags/OOP/" style="font-size: 13px;">OOP</a> <a href="/tags/OVS/" style="font-size: 13px;">OVS</a> <a href="/tags/Postman/" style="font-size: 13px;">Postman</a> <a href="/tags/SDN/" style="font-size: 13px;">SDN</a> <a href="/tags/Scapy/" style="font-size: 13px;">Scapy</a> <a href="/tags/Semi-Supervised-Learning/" style="font-size: 13px;">Semi-Supervised Learning</a> <a href="/tags/boto3/" style="font-size: 13px;">boto3</a> <a href="/tags/gitalk/" style="font-size: 13.5px;">gitalk</a> <a href="/tags/hexo/" style="font-size: 13.5px;">hexo</a> <a href="/tags/iPerf/" style="font-size: 13px;">iPerf</a> <a href="/tags/paramiko/" style="font-size: 13.5px;">paramiko</a> <a href="/tags/python/" style="font-size: 13px;">python</a> <a href="/tags/vs-code%E6%8F%92%E4%BB%B6/" style="font-size: 13px;">vs code插件</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 13.5px;">前端</a> <a href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" style="font-size: 13.5px;">性能测试</a> <a href="/tags/%E6%B8%B8%E6%A0%87/" style="font-size: 13px;">游标</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 13px;">网络</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/" style="font-size: 13px;">网络架构</a>
+      <a href="/tags/AWS/" style="font-size: 13px;">AWS</a> <a href="/tags/DevOps/" style="font-size: 13px;">DevOps</a> <a href="/tags/Docker/" style="font-size: 14px;">Docker</a> <a href="/tags/Few-shot-Learning/" style="font-size: 13px;">Few-shot Learning</a> <a href="/tags/Floodlight/" style="font-size: 13px;">Floodlight</a> <a href="/tags/Gitee/" style="font-size: 13px;">Gitee</a> <a href="/tags/Hexo/" style="font-size: 13.5px;">Hexo</a> <a href="/tags/Netperf/" style="font-size: 13px;">Netperf</a> <a href="/tags/OOP/" style="font-size: 13px;">OOP</a> <a href="/tags/OVS/" style="font-size: 13.5px;">OVS</a> <a href="/tags/OpenDaylight/" style="font-size: 13px;">OpenDaylight</a> <a href="/tags/Postman/" style="font-size: 13px;">Postman</a> <a href="/tags/SDN/" style="font-size: 14px;">SDN</a> <a href="/tags/Scapy/" style="font-size: 13px;">Scapy</a> <a href="/tags/Semi-Supervised-Learning/" style="font-size: 13px;">Semi-Supervised Learning</a> <a href="/tags/boto3/" style="font-size: 13px;">boto3</a> <a href="/tags/gitalk/" style="font-size: 13.5px;">gitalk</a> <a href="/tags/hexo/" style="font-size: 13.5px;">hexo</a> <a href="/tags/iPerf/" style="font-size: 13px;">iPerf</a> <a href="/tags/paramiko/" style="font-size: 13.5px;">paramiko</a> <a href="/tags/python/" style="font-size: 13px;">python</a> <a href="/tags/vs-code%E6%8F%92%E4%BB%B6/" style="font-size: 13px;">vs code插件</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 13.5px;">前端</a> <a href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" style="font-size: 13.5px;">性能测试</a> <a href="/tags/%E6%B8%B8%E6%A0%87/" style="font-size: 13px;">游标</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 13px;">网络</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/" style="font-size: 13px;">网络架构</a>
     </div>
   </div>
 
@@ -287,7 +284,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">16</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">六月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">16</span></li></ul>
     </div>
   </div>
 
@@ -299,6 +296,36 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/SDN/">SDN</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/06/03/SDN/SDN07_Floodlight/" class="title">软件定义网络（SDN）学习笔记(7)--Floodlight</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-06-03T05:11:04.000Z" itemprop="datePublished">2021-06-03</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/SDN/">SDN</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/05/31/SDN/SND05_OpenDaylight/" class="title">软件定义网络（SDN）学习笔记(5)--OpenDaylight控制器</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-05-31T05:11:04.000Z" itemprop="datePublished">2021-05-31</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-inner">
@@ -344,36 +371,6 @@
             </div>
           </li>
           
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/Docker/">Docker</a>
-              </p>
-              <p class="item-title">
-                <a href="/2021/04/28/Docker/basic_method/" class="title">Docker 常用命令方法</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2021-04-28T03:03:04.000Z" itemprop="datePublished">2021-04-28</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/Docker/">Docker</a>
-              </p>
-              <p class="item-title">
-                <a href="/2021/04/27/Docker/netdisconnected/" class="title">Docker 容器内网络无法连接</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2021-04-27T08:09:04.000Z" itemprop="datePublished">2021-04-27</time>
-              </p>
-            </div>
-          </li>
-          
       </ul>
     </div>
   </div>
@@ -387,14 +384,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-SDN/SDN03_ovs" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-SDN/SDN07_Floodlight" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      软件定义网络（SDN）学习笔记(4)--OVS系统架构
+      软件定义网络（SDN）学习笔记(7)--Floodlight
     </h1>
   
 
@@ -402,8 +399,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2021/04/26/SDN/SDN03_ovs/" class="article-date">
-	  <time datetime="2021-04-26T13:31:04.000Z" itemprop="datePublished">2021-04-26</time>
+	<a href="/2021/06/03/SDN/SDN07_Floodlight/" class="article-date">
+	  <time datetime="2021-06-03T05:11:04.000Z" itemprop="datePublished">2021-06-03</time>
 	</a>
 </span>
         
@@ -415,7 +412,7 @@
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/OVS/" rel="tag">OVS</a>, <a class="article-tag-link-link" href="/tags/SDN/" rel="tag">SDN</a>, <a class="article-tag-link-link" href="/tags/%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/" rel="tag">网络架构</a>
+	<a class="article-tag-link-link" href="/tags/Floodlight/" rel="tag">Floodlight</a>, <a class="article-tag-link-link" href="/tags/SDN/" rel="tag">SDN</a>
   </span>
 
 
@@ -428,62 +425,14 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/04/26/SDN/SDN03_ovs/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/06/03/SDN/SDN07_Floodlight/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <blockquote>
-<p>SDN学习目录</p>
-<blockquote>
-<p><a href="/2021/04/09/SDN/SDN00_wireshark/">SDN学习笔记(0)–wireshark抓包分析</a></p>
-<p><a href="/2021/04/14/SDN/SDN01_iPerf_Netperf/">SDN学习笔记(1)–iPerf和Netperf性能测试</a></p>
-<p><a href="/2021/04/14/SDN/SDN02_Scapy_Postman/">SDN学习笔记(2)–Scapy交互式数据处理与Postman HTTP请求测试</a></p>
-<p><a href="/2021/04/08/SDN/SDN03_ovs/">SDN学习笔记(3)–OVS系统架构</a></p>
-</blockquote>
-</blockquote>
-<h2 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1 基本概念"></a>1 基本概念</h2><h3 id="1-1-交换机"><a href="#1-1-交换机" class="headerlink" title="1.1 交换机"></a>1.1 交换机</h3><p>交换机（Switch）是一种在通信系统中完成信息交换功能的设备。它可以为接入交换机的任意两个网络节点提供独享的电信号通路。最常见的交换机是以太网交换机。其他常见的还有电话语音交换机、光纤交换机等。目前，二层交换技术发展比较成熟，二层交换机（Layer 2 switches）是指只支持OSI第二层（数据链路层）交换技术的交换机。</p>
-<h3 id="1-2-工作原理"><a href="#1-2-工作原理" class="headerlink" title="1.2 工作原理"></a>1.2 工作原理</h3><p>交换机拥有一条很高带宽的背部总线和内部交换矩阵。交换机的所有的端口都挂接在这条背部总线上，控制电路收到数据包以后，处理端口会查找内存中的地址对照表以确定目的MAC（网卡的硬件地址）的NIC（网卡）挂接在哪个端口上，通过内部交换矩阵迅速将数据包传送到目的端口，目的MAC若不存在，广播到所有的端口，接收端口回应后交换机会“学习”新的MAC地址，并把它添加入内部MAC地址表中，并刷新CAM表，表中有MAC地址，对应的端口号，端口所属的VLAN信息，交换机在二层转发数据时根据CAM表查找出端口。使用交换机也可以把网络“分段”，通过对照IP地址表，交换机只允许必要的网络流量通过交换机。通过交换机的过滤和转发，可以有效的减少冲突域，但不能划分广播域。交换机在同一时刻可进行多个端口对之间的数据传输。每一端口都可视为独立的网段，连接在其上的网络设备独自享有全部的带宽，无须同其他设备竞争使用。当节点A向节点D发送数据时，节点B可同时向节点C发送数据，而且这两个传输都享有网络的全部带宽，有着自己的虚拟连接。</p>
-<h3 id="1-3-作用与功能"><a href="#1-3-作用与功能" class="headerlink" title="1.3 作用与功能"></a>1.3 作用与功能</h3><p>交换机的常见功能如下：</p>
-<ul>
-<li>MAC地址学习：以太网交换机了解每一端口相连设备的MAC地址，并将地址同相应的端口映射起来存放在交换机缓存中的MAC地址表中。</li>
-<li>转发/过滤：当一个数据帧的目的地址在MAC地址表中有映射时，它被转发到连接目的节点的端口而不是所有端口（如该数据帧为广播/组播帧则转发至所有端口）。</li>
-<li>消除回路：当交换机包括一个冗余回路时，以太网交换机通过生成树协议避免回路的产生，同时允许存在后备路径。</li>
-</ul>
-<h2 id="2-Open-vSwitch-OVS"><a href="#2-Open-vSwitch-OVS" class="headerlink" title="2 Open vSwitch (OVS)"></a>2 Open vSwitch (OVS)</h2><p>Open vSwitch（OVS）是一个高质量的、多层虚拟交换机。OVS遵循开源Apache2.0许可，通过可编程扩展，OVS可以实现大规模网络的自动化（配置、管理、维护），同时支持现有标准管理接口和协议（比如NetFlow、sFlow、SPAN、RSPAN、CLI、LACP、802.1ag等）。此外OVS支持多种Linux虚拟化技术，包括Xen/XenServer，KVM，和VirtualBox等。虽然是虚拟交换机，但是其工作原理与物理交换机类似。在虚拟交换机的实现中，其两端分别连接着物理网卡和多块虚拟网卡，同时虚拟交换机内部会维护一张映射表，根据MAC地址寻找对应的虚拟机链路进而完成数据转发。</p>
-<p>OVS交换机有两种工作模式</p>
-<ul>
-<li>一种为SDN交换机，另一种为普通交换机。作为SDN交换机时，显示Fail_mode为Secure，在这种模式下OVS交换机需要控制器发送转发规则，指挥交换机去工作</li>
-<li>作为普通交换机时，显示Fail_mode是Standalone。其和物理交换机工作模式一样，记录端口号和MAC地址的对应关系，基于对应关系转发数据帧。交换机默认状态是SDN交换机。</li>
-</ul>
-<p>OVS 架构分为三个部分:</p>
-<ul>
-<li>内核空间：包含了流表（Flow Table）和Datapath模块（类似于网桥，主要负责对数据分组进行操作）。</li>
-<li>用户空间：运行着OVS的守护进程(Open vSwitch Daemon, vswitchd)和数据库(Open vSwitch Database, ovsdb)，他们是ovs的核心功能模块。<ul>
-<li>vswitchd类似于OVS的心脏，维持OVS的声明周期。可以配置一系列特性：<ul>
-<li>基于MAC地址学习的二层交换</li>
-<li>支持IEEE802.1Q VLAN</li>
-<li>sFlow监测</li>
-<li>连接OpenFlow控制器</li>
-<li>通过Netlink协议与内核模块Datapath直接通信</li>
-</ul>
-</li>
-<li>ovsdb相当于OVS的大脑，存储OVS的配置信息和数据流信息。</li>
-</ul>
-</li>
-<li>配置管理层：包括ovs-dpctl, ovs-ofctl, ovs-appctl, ovs-vsctl和ovsdb-tool等，主要用于和vswitchd,ovsdb之间进行交互操作以及ovs的安装配置和部署</li>
-</ul>
-<p><img src="https://ganshizhong.gitee.io/blogimages/SDN/ovs%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84.png" alt="ovs 系统架构"></p>
-<h2 id="3-OVS安装使用"><a href="#3-OVS安装使用" class="headerlink" title="3. OVS安装使用"></a>3. OVS安装使用</h2><p>OVS可以运行在任何基于Linux的虚拟化平台，包括KVM, VirtualBox, Xen等，其代码都是基于C编写，所以易于移植到其他环境。安装有两种方法：一种通过二进制文件安装apt-get；另外一种是源码安装。</p>
-<h3 id="3-1-docker安装ovs"><a href="#3-1-docker安装ovs" class="headerlink" title="3.1 docker安装ovs"></a>3.1 docker安装ovs</h3><p>docker 安装参见【<a href="/2021/04/27/Docker/docker_install">Ubuntu安装Docker与最常用配置</a>】</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull ubuntu</span><br><span class="line">docker run -it --name ovs1 ubuntu /bin/bash</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>note:进入容器后，若发现无法联网请参见文章【<a href="/2021/04/27/Docker/netdisconnected/">Docker容器内网络无法连接</a>】</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 通用版本java 卸载</span></span><br><span class="line">dpkg -l |grep -i jdk</span><br><span class="line">apt-get purge openjdk*</span><br><span class="line">apt-get purge icedtea-* openjdk-*</span><br><span class="line"></span><br><span class="line"><span class="comment">## 安装1（此方法不行）</span></span><br><span class="line">sudo apt-get install build-essential ant python-dev</span><br><span class="line">sudo add-apt-repository ppa:webupd8team/java</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install oracle-java8-installer</span><br><span class="line"></span><br><span class="line"><span class="comment">## 安装2</span></span><br><span class="line">sudo mkdir /usr/lib/jvm</span><br><span class="line">sudo tar -zxvf jdk-8u181-linux-x64.tar.gz -C /usr/lib/jvm</span><br><span class="line"><span class="comment"># sudo vim ~/.bashrc</span></span><br><span class="line">sudo vim /etc/profile </span><br><span class="line">    <span class="comment">#set oracle jdk environment</span></span><br><span class="line">    <span class="built_in">export</span> JAVA_HOME=/home/ec2-user/jdk/jdk1.8.0_211  <span class="comment">## 这里要注意目录要换成自己解压的jdk 目录</span></span><br><span class="line">    <span class="built_in">export</span> JRE_HOME=<span class="variable">$&#123;JAVA_HOME&#125;</span>/jre  </span><br><span class="line">    <span class="built_in">export</span> CLASSPATH=.:<span class="variable">$&#123;JAVA_HOME&#125;</span>/lib:<span class="variable">$&#123;JRE_HOME&#125;</span>/lib  </span><br><span class="line">    <span class="built_in">export</span> PATH=<span class="variable">$&#123;JAVA_HOME&#125;</span>/bin:<span class="variable">$PATH</span>  </span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> /etc/profile </span><br><span class="line"></span><br><span class="line"><span class="comment">## 设置默认jdk(可不操作)</span></span><br><span class="line">sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.8.0_181/bin/java 300  </span><br><span class="line">sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.8.0_181/bin/javac 300  </span><br><span class="line">sudo update-alternatives --install /usr/bin/jar jar /usr/lib/jvm/jdk1.8.0_181/bin/jar 300   </span><br><span class="line">sudo update-alternatives --install /usr/bin/javah javah /usr/lib/jvm/jdk1.8.0_181/bin/javah 300   </span><br><span class="line">sudo update-alternatives --install /usr/bin/javap javap /usr/lib/jvm/jdk1.8.0_181/bin/javap 300</span><br><span class="line"></span><br><span class="line"><span class="comment">## 执行</span></span><br><span class="line">sudo update-alternatives --config java</span><br><span class="line"></span><br><span class="line"><span class="comment">## 检查</span></span><br><span class="line">java -version</span><br><span class="line">javac -version</span><br><span class="line"></span><br><span class="line"><span class="comment">## Floodlight</span></span><br><span class="line">sudo apt-get install build-essential default-jdk ant python-dev</span><br><span class="line">sudo apt-get install git</span><br><span class="line">git <span class="built_in">clone</span> -b v1.1 git://github.com/floodlight/floodlight.git  </span><br><span class="line"><span class="built_in">cd</span> floodlight</span><br><span class="line"><span class="comment"># git pull origin master </span></span><br><span class="line"><span class="comment"># git submodule init </span></span><br><span class="line"><span class="comment"># git submodule update </span></span><br><span class="line">ant</span><br><span class="line">ant eclipse</span><br><span class="line"></span><br><span class="line"><span class="comment">## 启动</span></span><br><span class="line">java -jar target/floodlight.jar</span><br></pre></td></tr></table></figure>
 
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Silvester123/article/details/80867168">https://blog.csdn.net/Silvester123/article/details/80867168</a></p>
 
       
     </div>
@@ -493,7 +442,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://shizhonggan.github.io/2021/04/26/SDN/SDN03_ovs/" title="软件定义网络（SDN）学习笔记(4)--OVS系统架构" target="_blank" rel="external">http://shizhonggan.github.io/2021/04/26/SDN/SDN03_ovs/</a>
+      <a href="http://shizhonggan.github.io/2021/06/03/SDN/SDN07_Floodlight/" title="软件定义网络（SDN）学习笔记(7)--Floodlight" target="_blank" rel="external">http://shizhonggan.github.io/2021/06/03/SDN/SDN07_Floodlight/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -537,13 +486,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2021/04/27/Docker/netdisconnected/" title="Docker 容器内网络无法连接"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2021/04/26/Docker/docker_install/" title="Ubuntu安装Docker与最常用配置"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2021/05/31/SDN/SND05_OpenDaylight/" title="软件定义网络（SDN）学习笔记(5)--OpenDaylight控制器"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
