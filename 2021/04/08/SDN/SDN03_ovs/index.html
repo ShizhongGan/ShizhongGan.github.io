@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://ganshizhong.gitee.io/blogimages/SDN/ovs/flow_actions.png">
 <meta property="og:image" content="https://ganshizhong.gitee.io/blogimages/SDN/ovs/flow_paramter.png">
 <meta property="article:published_time" content="2021-04-08T13:31:04.000Z">
-<meta property="article:modified_time" content="2021-06-04T07:21:59.321Z">
+<meta property="article:modified_time" content="2021-06-04T07:33:57.572Z">
 <meta property="article:author" content="甘士忠">
 <meta property="article:tag" content="网络架构">
 <meta property="article:tag" content="SDN">
@@ -497,7 +497,58 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 查看docker容器的网卡物理地址</span></span><br><span class="line">docker <span class="built_in">exec</span> -it h0 bash</span><br><span class="line">root@8cfaf3984bdf:/<span class="comment"># ifconfig</span></span><br><span class="line">eth0 flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1450</span><br><span class="line">        inet 10.0.50.10  netmask 255.255.255.0  broadcast 10.0.50.255</span><br><span class="line">        ether 02:42:0a:00:32:0a  txqueuelen 0  (Ethernet)</span><br><span class="line">        RX packets 2873  bytes 319842 (319.8 KB)</span><br><span class="line">        RX errors 0  dropped 2736  overruns 0  frame 0</span><br><span class="line">        TX packets 29  bytes 1666 (1.6 KB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br></pre></td></tr></table></figure>
 <p><strong>ovs连接容器方法有诸多坑存在，将单独整理一篇文章讲解</strong></p>
 <p>上面说到，创建桥的时候会创建一个和桥名字一样的接口，并自动作为该桥的一个端口，那么这个虚拟接口的作用，一方面是可以作为交换机的管理端口，另一方面也是基于这个虚拟接口实现了桥的功能。Open vSwitch的内核模块实现了多个“数据路径”，每个都可以有多个vports。每个数据路径也通过关联流表（flow table）来设置操作，而这些流表中的流都是用户空间在报文头和元数据的基础上映射的关键信息，一般的操作都是将数据包转发到另一个vport。当一个数据包到达一个vport，内核模块所做的处理是提取其流的关键信息并在流表中查找这些关键信息，当有一个匹配的流时它执行对应的操作，如果没有匹配，它会将数据包送到用户空间的处理队列中，作为处理的一部分，用户空间可能会设置一个流用于以后碰到相同类型的数据包可以在内核中执行操作。<br>ovs-vsctl关于网桥管理的常用命令如下：</p>
-<p>命令 | 含义<br>|-|-|<br>init | 初始化数据库（前提数据分组为空）<br>show | 打印数据库信息摘要<br>add-br BRIDGE | 添加新的网桥<br>del-br BRIDGE | 删除网桥<br>list-br | 打印网桥摘要信息<br>list-ports BRIDGE | 打印网桥中所有port摘要信息<br>add-port BRIDGE PORT |向网桥中添加端口<br>del-port [BRIDGE] PORT |删除网桥上的端口<br>get-controller BRIDGE | 获取网桥的控制器信息<br>del-controller BRIDGE | 删除网桥的控制器信息<br>set-controller BRIDGE TARGET | 向网桥添加控制器</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>init</td>
+<td>初始化数据库（前提数据分组为空）</td>
+</tr>
+<tr>
+<td>show</td>
+<td>打印数据库信息摘要</td>
+</tr>
+<tr>
+<td>add-br BRIDGE</td>
+<td>添加新的网桥</td>
+</tr>
+<tr>
+<td>del-br BRIDGE</td>
+<td>删除网桥</td>
+</tr>
+<tr>
+<td>list-br</td>
+<td>打印网桥摘要信息</td>
+</tr>
+<tr>
+<td>list-ports BRIDGE</td>
+<td>打印网桥中所有port摘要信息</td>
+</tr>
+<tr>
+<td>add-port BRIDGE PORT</td>
+<td>向网桥中添加端口</td>
+</tr>
+<tr>
+<td>del-port [BRIDGE] PORT</td>
+<td>删除网桥上的端口</td>
+</tr>
+<tr>
+<td>get-controller BRIDGE</td>
+<td>获取网桥的控制器信息</td>
+</tr>
+<tr>
+<td>del-controller BRIDGE</td>
+<td>删除网桥的控制器信息</td>
+</tr>
+<tr>
+<td>set-controller BRIDGE TARGET</td>
+<td>向网桥添加控制器</td>
+</tr>
+</tbody></table>
 <h3 id="3-3-ovs-ofctl-命令使用"><a href="#3-3-ovs-ofctl-命令使用" class="headerlink" title="3.3 ovs-ofctl 命令使用"></a>3.3 ovs-ofctl 命令使用</h3><p>ovs-ofctl 命令是对流表的操作，包括对流表的增，删，改，查等命令。简单来说流表类似于交换机的MAC地址表，路由器的路由表，是ovs交换机指挥流量转发的表。</p>
 <p>OpenFlow是用于管理交换机流表的协议，ovs-ofctl是Open vSwitch提供的命令行工具。在没有配置OpenFlow控制器的模式下，用户可以使用ovs-ofctl命令通过OpenFlow协议连接Open vSwitch来创建、修改或删除Open vSwitch中的流表项，并对Open vSwitch的运行状况进行动态监控。ovs-ofctl关于流表管理的常用命令如下表所示：</p>
 <p><img src="https://ganshizhong.gitee.io/blogimages/SDN/ovs/ovs-ofctl-commands.png" alt="ovs-ofctl命令"></p>
