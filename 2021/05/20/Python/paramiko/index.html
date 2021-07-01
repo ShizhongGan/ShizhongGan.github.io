@@ -18,20 +18,22 @@
   
   
   <title>Paramiko执行后台命令报错 | 甘士忠个人博客</title>
-  <meta name="description" content="1. 报错关键字  paramiko Exception ignored in: &lt;function BufferedFile.del at 0x000001E62C28A048&gt; TypeError: ‘NoneType’ object is not callable   2. 代码 12345import paramikosshc &#x3D; paramiko.SSHClient()ss">
+  <meta name="description" content="1. 报错关键字 paramiko Exception ignored in: &lt;function BufferedFile.__del__ at 0x000001E62C28A048&gt; TypeError: ‘NoneType’ object is not callable  2. 代码12345import paramikosshc &#x3D; paramiko.SSHClient()ss">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Paramiko执行后台命令报错">
 <meta property="og:url" content="http://shizhonggan.github.io/2021/05/20/Python/paramiko/index.html">
 <meta property="og:site_name" content="钟声">
-<meta property="og:description" content="1. 报错关键字  paramiko Exception ignored in: &lt;function BufferedFile.del at 0x000001E62C28A048&gt; TypeError: ‘NoneType’ object is not callable   2. 代码 12345import paramikosshc &#x3D; paramiko.SSHClient()ss">
+<meta property="og:description" content="1. 报错关键字 paramiko Exception ignored in: &lt;function BufferedFile.__del__ at 0x000001E62C28A048&gt; TypeError: ‘NoneType’ object is not callable  2. 代码12345import paramikosshc &#x3D; paramiko.SSHClient()ss">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ganshizhong.gitee.io/blogimages/Python/paramiko/win_CRCF.png">
 <meta property="article:published_time" content="2021-05-20T01:39:04.000Z">
-<meta property="article:modified_time" content="2021-05-20T05:29:52.844Z">
+<meta property="article:modified_time" content="2021-06-16T08:08:11.885Z">
 <meta property="article:author" content="甘士忠">
 <meta property="article:tag" content="paramiko">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="DevOps">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ganshizhong.gitee.io/blogimages/Python/paramiko/win_CRCF.png">
   <!-- Canonical links -->
   <link rel="canonical" href="http://shizhonggan.github.io/2021/05/20/Python/paramiko/index.html">
   
@@ -266,7 +268,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AWS/">AWS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Deep-Learning/">Deep Learning</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SDN/">SDN</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tips/">Tips</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BF%90%E7%BB%B4/">运维</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AWS/">AWS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Deep-Learning/">Deep Learning</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SDN/">SDN</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tips/">Tips</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C/">网络</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BF%90%E7%BB%B4/">运维</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -276,7 +278,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/AWS/" style="font-size: 13px;">AWS</a> <a href="/tags/DevOps/" style="font-size: 13px;">DevOps</a> <a href="/tags/Docker/" style="font-size: 14px;">Docker</a> <a href="/tags/Few-shot-Learning/" style="font-size: 13px;">Few-shot Learning</a> <a href="/tags/Floodlight/" style="font-size: 13px;">Floodlight</a> <a href="/tags/Gitee/" style="font-size: 13px;">Gitee</a> <a href="/tags/Hexo/" style="font-size: 13.5px;">Hexo</a> <a href="/tags/Netperf/" style="font-size: 13px;">Netperf</a> <a href="/tags/OOP/" style="font-size: 13px;">OOP</a> <a href="/tags/OVS/" style="font-size: 13.5px;">OVS</a> <a href="/tags/OpenDaylight/" style="font-size: 13px;">OpenDaylight</a> <a href="/tags/Postman/" style="font-size: 13px;">Postman</a> <a href="/tags/SDN/" style="font-size: 14px;">SDN</a> <a href="/tags/Scapy/" style="font-size: 13px;">Scapy</a> <a href="/tags/Semi-Supervised-Learning/" style="font-size: 13px;">Semi-Supervised Learning</a> <a href="/tags/boto3/" style="font-size: 13px;">boto3</a> <a href="/tags/gitalk/" style="font-size: 13.5px;">gitalk</a> <a href="/tags/hexo/" style="font-size: 13.5px;">hexo</a> <a href="/tags/iPerf/" style="font-size: 13px;">iPerf</a> <a href="/tags/paramiko/" style="font-size: 13.5px;">paramiko</a> <a href="/tags/python/" style="font-size: 13px;">python</a> <a href="/tags/vs-code%E6%8F%92%E4%BB%B6/" style="font-size: 13px;">vs code插件</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 13.5px;">前端</a> <a href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" style="font-size: 13.5px;">性能测试</a> <a href="/tags/%E6%B8%B8%E6%A0%87/" style="font-size: 13px;">游标</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 13px;">网络</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/" style="font-size: 13px;">网络架构</a>
+      <a href="/tags/AWS/" style="font-size: 13px;">AWS</a> <a href="/tags/DevOps/" style="font-size: 13px;">DevOps</a> <a href="/tags/Docker/" style="font-size: 14px;">Docker</a> <a href="/tags/Few-shot-Learning/" style="font-size: 13px;">Few-shot Learning</a> <a href="/tags/Floodlight/" style="font-size: 13px;">Floodlight</a> <a href="/tags/Gitee/" style="font-size: 13px;">Gitee</a> <a href="/tags/Hexo/" style="font-size: 13.5px;">Hexo</a> <a href="/tags/Netperf/" style="font-size: 13px;">Netperf</a> <a href="/tags/OOP/" style="font-size: 13px;">OOP</a> <a href="/tags/OVS/" style="font-size: 13.5px;">OVS</a> <a href="/tags/OpenDaylight/" style="font-size: 13px;">OpenDaylight</a> <a href="/tags/Postman/" style="font-size: 13px;">Postman</a> <a href="/tags/SDN/" style="font-size: 14px;">SDN</a> <a href="/tags/Scapy/" style="font-size: 13px;">Scapy</a> <a href="/tags/Semi-Supervised-Learning/" style="font-size: 13px;">Semi-Supervised Learning</a> <a href="/tags/boto3/" style="font-size: 13px;">boto3</a> <a href="/tags/gitalk/" style="font-size: 13.5px;">gitalk</a> <a href="/tags/hexo/" style="font-size: 13.5px;">hexo</a> <a href="/tags/iPerf/" style="font-size: 13px;">iPerf</a> <a href="/tags/paramiko/" style="font-size: 13.5px;">paramiko</a> <a href="/tags/python/" style="font-size: 13px;">python</a> <a href="/tags/vs-code%E6%8F%92%E4%BB%B6/" style="font-size: 13px;">vs code插件</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 13.5px;">前端</a> <a href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" style="font-size: 13.5px;">性能测试</a> <a href="/tags/%E6%B8%B8%E6%A0%87/" style="font-size: 13px;">游标</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 13.5px;">网络</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84/" style="font-size: 13px;">网络架构</a>
     </div>
   </div>
 
@@ -285,7 +287,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">六月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">16</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">六月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">16</span></li></ul>
     </div>
   </div>
 
@@ -297,6 +299,21 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E7%BD%91%E7%BB%9C/">网络</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/07/01/SDN/basicnetwork/" class="title">网络技术基础知识[持续更新]</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-07-01T08:18:00.000Z" itemprop="datePublished">2021-07-01</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-inner">
@@ -353,21 +370,6 @@
               </p>
               <p class="item-date">
                 <time datetime="2021-05-20T01:39:04.000Z" itemprop="datePublished">2021-05-20</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/Tips/">Tips</a>
-              </p>
-              <p class="item-title">
-                <a href="/2021/05/18/Tips/PaperDownload/" class="title">学术论文免费下载方法</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2021-05-18T13:44:23.000Z" itemprop="datePublished">2021-05-18</time>
               </p>
             </div>
           </li>
@@ -432,43 +434,46 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="1-报错关键字"><a class="markdownIt-Anchor" href="#1-报错关键字"></a> 1. 报错关键字</h2>
-<ul>
+        <h2 id="1-报错关键字"><a href="#1-报错关键字" class="headerlink" title="1. 报错关键字"></a>1. 报错关键字</h2><ul>
 <li>paramiko</li>
-<li>Exception ignored in: &lt;function BufferedFile.<strong>del</strong> at 0x000001E62C28A048&gt;</li>
+<li>Exception ignored in: &lt;function BufferedFile.__del__ at 0x000001E62C28A048&gt;</li>
 <li>TypeError: ‘NoneType’ object is not callable</li>
 </ul>
-<h2 id="2-代码"><a class="markdownIt-Anchor" href="#2-代码"></a> 2. 代码</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> paramiko</span><br><span class="line">sshc = paramiko.SSHClient()</span><br><span class="line">sshc.set_missing_host_key_policy(paramiko.AutoAddPolicy())</span><br><span class="line">sshc.connect(host, username=username,port=port,pkey=key)</span><br><span class="line">stdin1, stdout1, stderr1 = sshc.exec_command(<span class="string">&quot;setsid ...(省略)... &amp;&quot;</span>) </span><br></pre></td></tr></table></figure>
-<p>setsid是linux系统命令，如果再window下写的代码此处必然无法运行。可以先将setsid相关代码通过sshc.open_sftp()上传到服务端，然后通过sshc.exec_command(“python <a target="_blank" rel="noopener" href="http://setsid.py">setsid.py</a>”)运行脚本。</p>
-<h3 id="nohup-与-setsid-区别"><a class="markdownIt-Anchor" href="#nohup-与-setsid-区别"></a> nohup 与 setsid 区别</h3>
-<p>参考：<a target="_blank" rel="noopener" href="http://www.tang-lei.com/2019/03/04/linux-nohup-setsid-%E4%BD%BF%E7%94%A8%E5%8C%BA%E5%88%AB/">http://www.tang-lei.com/2019/03/04/linux-nohup-setsid-使用区别/</a></p>
+<h2 id="2-代码"><a href="#2-代码" class="headerlink" title="2. 代码"></a>2. 代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> paramiko</span><br><span class="line">sshc = paramiko.SSHClient()</span><br><span class="line">sshc.set_missing_host_key_policy(paramiko.AutoAddPolicy())</span><br><span class="line">sshc.connect(host, username=username,port=port,pkey=key)</span><br><span class="line">stdin1, stdout1, stderr1 = sshc.exec_command(<span class="string">&quot;setsid ...(省略)... &amp;&quot;</span>) </span><br></pre></td></tr></table></figure>
+<p>setsid是linux系统命令，如果再window下写的代码此处必然无法运行。可以先将setsid相关代码通过sshc.open_sftp()上传到服务端，然后通过sshc.exec_command(“python setsid.py”)运行脚本。</p>
+<h3 id="nohup-与-setsid-区别"><a href="#nohup-与-setsid-区别" class="headerlink" title="nohup 与 setsid 区别"></a>nohup 与 setsid 区别</h3><p>参考：<a target="_blank" rel="noopener" href="http://www.tang-lei.com/2019/03/04/linux-nohup-setsid-%E4%BD%BF%E7%94%A8%E5%8C%BA%E5%88%AB/">http://www.tang-lei.com/2019/03/04/linux-nohup-setsid-使用区别/</a></p>
 <ul>
-<li>
-<p>nohup</p>
-<p>nohup命令的功能就是使用当前进程忽略hangup信号，从而继续执行。默认的标准输入输出都会被重定向到当前目录下的nohup.out文件里。一般我们配置在命令的末尾加上 &amp; 来配合使用。</p>
-<p>可以通过 &gt;filename 2&gt;&amp;1 来重定向默认的输入输出, 如：”nohup minio server :9001 /mnt/test/ &gt; /var/log/minio_test.log 2&gt;&amp;1 &amp;”, 通过jobs 可以看到该进程的父进程是当前shell的进程号</p>
-<p>作用说明：进程在后台执行；忽略hangup信号；重定向日志输出</p>
+<li><p>nohup</p>
+<p>  nohup命令的功能就是使用当前进程忽略hangup信号，从而继续执行。默认的标准输入输出都会被重定向到当前目录下的nohup.out文件里。一般我们配置在命令的末尾加上 &amp; 来配合使用。</p>
+<p>  可以通过 &gt;filename 2&gt;&amp;1 来重定向默认的输入输出, 如：”nohup minio server :9001 /mnt/test/ &gt; /var/log/minio_test.log 2&gt;&amp;1 &amp;”, 通过jobs 可以看到该进程的父进程是当前shell的进程号</p>
+<p>  作用说明：进程在后台执行；忽略hangup信号；重定向日志输出</p>
 </li>
-<li>
-<p>&amp;</p>
-<p>&amp; 代表后台运行程序。如果终端退出，则该进程会结束。通常配合nohup和setsid使用</p>
+<li><p>&amp;</p>
+<p>  &amp; 代表后台运行程序。如果终端退出，则该进程会结束。通常配合nohup和setsid使用</p>
 </li>
-<li>
-<p>setsid</p>
-<p>setsid 就是set session id 的意思。表示该命令运行的进程是一个新的session。因此其父进程不属于当前终端。实际上setsid运行的进程，其父进程id(ppid)为1(init进程的id)。</p>
-<p>如：”setsid minion server :9001 /mnt/test/ &gt; /var/log/minio_test.log &amp;”。注意：setsid输出重定向必须手动指定。</p>
+<li><p>setsid</p>
+<p>  setsid 就是set session id 的意思。表示该命令运行的进程是一个新的session。因此其父进程不属于当前终端。实际上setsid运行的进程，其父进程id(ppid)为1(init进程的id)。</p>
+<p>  如：”setsid minion server :9001 /mnt/test/ &gt; /var/log/minio_test.log &amp;”。注意：setsid输出重定向必须手动指定。</p>
 </li>
-<li>
-<p>结论</p>
-<p>由于nohup的父进程与当前的worker有关，当我们Ctrl+C的时候，也会把其给kill掉。而setsid的父进程是init,所以当我们退出worker的时候，并不会kill掉该服务</p>
+<li><p>结论</p>
+<p>  由于nohup的父进程与当前的worker有关，当我们Ctrl+C的时候，也会把其给kill掉。而setsid的父进程是init,所以当我们退出worker的时候，并不会kill掉该服务</p>
 </li>
 </ul>
-<h2 id="3-输出"><a class="markdownIt-Anchor" href="#3-输出"></a> 3. 输出</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Exception ignored <span class="keyword">in</span>: &lt;function BufferedFile.__del__ at <span class="number">0x000001E62C28A048</span>&gt;</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;C:\ProgramData\Anaconda3\lib\site-packages\paramiko\file.py&quot;</span>, line <span class="number">66</span>, <span class="keyword">in</span> __del__</span><br><span class="line">  File <span class="string">&quot;C:\ProgramData\Anaconda3\lib\site-packages\paramiko\channel.py&quot;</span>, line <span class="number">1392</span>, <span class="keyword">in</span> close</span><br><span class="line">  File <span class="string">&quot;C:\ProgramData\Anaconda3\lib\site-packages\paramiko\channel.py&quot;</span>, line <span class="number">991</span>, <span class="keyword">in</span> shutdown_write</span><br><span class="line">  File <span class="string">&quot;C:\ProgramData\Anaconda3\lib\site-packages\paramiko\channel.py&quot;</span>, line <span class="number">963</span>, <span class="keyword">in</span> shutdown</span><br><span class="line">  File <span class="string">&quot;C:\ProgramData\Anaconda3\lib\site-packages\paramiko\channel.py&quot;</span>, line <span class="number">1246</span>, <span class="keyword">in</span> _send_eof</span><br><span class="line">  File <span class="string">&quot;C:\ProgramData\Anaconda3\lib\site-packages\paramiko\message.py&quot;</span>, line <span class="number">232</span>, <span class="keyword">in</span> add_int</span><br><span class="line">TypeError: <span class="string">&#x27;NoneType&#x27;</span> <span class="built_in">object</span> <span class="keyword">is</span> <span class="keyword">not</span> <span class="built_in">callable</span></span><br></pre></td></tr></table></figure>
-<h2 id="4-解决方法"><a class="markdownIt-Anchor" href="#4-解决方法"></a> 4. 解决方法</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## main.py</span></span><br><span class="line"><span class="keyword">import</span> paramiko</span><br><span class="line">sshc = paramiko.SSHClient()</span><br><span class="line">sshc.set_missing_host_key_policy(paramiko.AutoAddPolicy())</span><br><span class="line">sshc.connect(host, username=username,port=port,pkey=key)</span><br><span class="line"></span><br><span class="line">sftp = sshc.open_sftp()</span><br><span class="line">localfile = <span class="string">&quot;cmd.py&quot;</span></span><br><span class="line">remotepath = <span class="string">&quot;/path/cmd.py&quot;</span></span><br><span class="line">sftp.put(localfile, remotepath)</span><br><span class="line">stdin, stdout1, stderr = sshc.exec_command(<span class="string">&quot;python &quot;</span>+<span class="string">&quot;cmd.py&quot;</span>) </span><br><span class="line">sshc.close()</span><br><span class="line"></span><br><span class="line"><span class="comment">## cmd.py</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">SnapID = <span class="string">&quot;snap-096b5af48e45fe262&quot;</span></span><br><span class="line">datapath = <span class="string">&quot;/mnt/snap/8572302701/hda/data.gz.aes&quot;</span></span><br><span class="line">opensslcmd = os.popen( <span class="comment"># 此处选用os.popen，主要是怀疑paramiko存在问题</span></span><br><span class="line"><span class="string">&quot;setsid ...(your shell commands)... &amp;&quot;</span></span><br><span class="line">)</span><br><span class="line">sys.exit()</span><br></pre></td></tr></table></figure>
+<h2 id="3-输出"><a href="#3-输出" class="headerlink" title="3. 输出"></a>3. 输出</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Exception ignored <span class="keyword">in</span>: &lt;function BufferedFile.__del__ at <span class="number">0x000001E62C28A048</span>&gt;</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;C:\ProgramData\Anaconda3\lib\site-packages\paramiko\file.py&quot;</span>, line <span class="number">66</span>, <span class="keyword">in</span> __del__</span><br><span class="line">  File <span class="string">&quot;C:\ProgramData\Anaconda3\lib\site-packages\paramiko\channel.py&quot;</span>, line <span class="number">1392</span>, <span class="keyword">in</span> close</span><br><span class="line">  File <span class="string">&quot;C:\ProgramData\Anaconda3\lib\site-packages\paramiko\channel.py&quot;</span>, line <span class="number">991</span>, <span class="keyword">in</span> shutdown_write</span><br><span class="line">  File <span class="string">&quot;C:\ProgramData\Anaconda3\lib\site-packages\paramiko\channel.py&quot;</span>, line <span class="number">963</span>, <span class="keyword">in</span> shutdown</span><br><span class="line">  File <span class="string">&quot;C:\ProgramData\Anaconda3\lib\site-packages\paramiko\channel.py&quot;</span>, line <span class="number">1246</span>, <span class="keyword">in</span> _send_eof</span><br><span class="line">  File <span class="string">&quot;C:\ProgramData\Anaconda3\lib\site-packages\paramiko\message.py&quot;</span>, line <span class="number">232</span>, <span class="keyword">in</span> add_int</span><br><span class="line">TypeError: <span class="string">&#x27;NoneType&#x27;</span> <span class="built_in">object</span> <span class="keyword">is</span> <span class="keyword">not</span> <span class="built_in">callable</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="报错原因"><a href="#报错原因" class="headerlink" title="报错原因"></a>报错原因</h2><ol>
+<li><p>windows回车和linux回车存在差异,如下图是windows的回车，二linux不是。</p>
+<p> <img src="https://ganshizhong.gitee.io/blogimages/Python/paramiko/win_CRCF.png"></p>
+</li>
+<li><p>nohup &amp; 命令执行完没有完全退出</p>
+</li>
+<li><p>shell命令存在错误</p>
+</li>
+</ol>
+<h2 id="4-解决方法"><a href="#4-解决方法" class="headerlink" title="4. 解决方法"></a>4. 解决方法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## main.py</span></span><br><span class="line"><span class="keyword">import</span> paramiko</span><br><span class="line">sshc = paramiko.SSHClient()</span><br><span class="line">sshc.set_missing_host_key_policy(paramiko.AutoAddPolicy())</span><br><span class="line">sshc.connect(host, username=username,port=port,pkey=key)</span><br><span class="line"></span><br><span class="line">sftp = sshc.open_sftp()</span><br><span class="line">localfile = <span class="string">&quot;cmd.py&quot;</span></span><br><span class="line">remotepath = <span class="string">&quot;/path/cmd.py&quot;</span></span><br><span class="line">sftp.put(localfile, remotepath)</span><br><span class="line">stdin, stdout1, stderr = sshc.exec_command(<span class="string">&quot;python &quot;</span>+<span class="string">&quot;cmd.py&quot;</span>) </span><br><span class="line">sshc.close()</span><br><span class="line"></span><br><span class="line"><span class="comment">## cmd.py</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">SnapID = <span class="string">&quot;snap-096b5af48e45fe262&quot;</span></span><br><span class="line">datapath = <span class="string">&quot;/mnt/snap/8572302701/hda/data.gz.aes&quot;</span></span><br><span class="line">opensslcmd = os.popen( <span class="comment"># 此处选用os.popen，主要是怀疑paramiko存在问题</span></span><br><span class="line"><span class="string">&quot;setsid ...(your shell commands)... &amp;&quot;</span></span><br><span class="line">)</span><br><span class="line"><span class="comment"># 此处可以多添加几个无用命令</span></span><br><span class="line">sys.exit()</span><br></pre></td></tr></table></figure>
+
 <p>将代码最后添加一个sys.exit()程序恢复正常,其实主要ssh返回的结果缓冲释放过快未读完，就产生报错了。也有说，加一个sleep 1秒也可以解决。</p>
+<p>也可能是shell脚本问题，需仔细检查;windows于linux 回车差异需要注意。</p>
 
       
     </div>

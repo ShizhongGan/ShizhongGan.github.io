@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://shizhonggan.github.io/2021/04/21/SDN/SDN03_ovs/</loc>
-    <lastmod>2021-06-04</lastmod>
+    <loc>http://shizhonggan.github.io/2021/07/01/SDN/basicnetwork/</loc>
+    <lastmod>2021-07-01</lastmod>
   </url>
   <url>
     <loc>http://shizhonggan.github.io/2021/06/03/SDN/SDN07_Floodlight/</loc>
-    <lastmod>2021-06-04</lastmod>
+    <lastmod>2021-06-29</lastmod>
   </url>
   <url>
     <loc>http://shizhonggan.github.io/2021/05/31/SDN/SDN05_OpenDaylight/</loc>
+    <lastmod>2021-06-23</lastmod>
+  </url>
+  <url>
+    <loc>http://shizhonggan.github.io/2021/05/20/Python/paramiko/</loc>
+    <lastmod>2021-06-16</lastmod>
+  </url>
+  <url>
+    <loc>http://shizhonggan.github.io/2021/04/21/SDN/SDN03_ovs/</loc>
     <lastmod>2021-06-04</lastmod>
   </url>
   <url>
@@ -35,10 +43,6 @@
   <url>
     <loc>http://shizhonggan.github.io/2021/05/26/Python/aws_boto3_paramiko/</loc>
     <lastmod>2021-05-26</lastmod>
-  </url>
-  <url>
-    <loc>http://shizhonggan.github.io/2021/05/20/Python/paramiko/</loc>
-    <lastmod>2021-05-20</lastmod>
   </url>
   <url>
     <loc>http://shizhonggan.github.io/2021/05/18/Tips/PaperDownload/</loc>
